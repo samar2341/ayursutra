@@ -1,0 +1,32 @@
+{
+  "name": "ayursutra",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Ayursutra full-stack Ayurveda lifestyle and wellness monorepo",
+  "workspaces": [
+    "apps/web",
+    "apps/api",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev": "npx concurrently \"npm run dev:web\" \"npm run dev:api\"",
+    "dev:web": "npm run dev --workspace apps/web",
+    "dev:api": "npm run dev --workspace apps/api",
+    "build": "npm run build:web",
+    "build:web": "npm run build --workspace apps/web",
+    "start:api": "npm run start --workspace apps/api",
+    "db:migrate": "npm run prisma:migrate --workspace apps/api",
+    "db:seed": "npm run seed --workspace apps/api",
+    "lint": "npm run lint --workspace apps/web"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
